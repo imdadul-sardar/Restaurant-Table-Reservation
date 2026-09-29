@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #171717;
+  --cream: #f7f2e8;
+  --card: #ffffff;
+  --accent: #b66a3c;
+  --accent-dark: #8f4d29;
+  --green: #4f7d57;
+  --red: #a94c4c;
+  --border: #e5ded2;
+  --muted: #777;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.5;
+}
+
+.navbar {
+  height: 72px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.logo span { color: var(--accent); }
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover { color: var(--accent); }
+
+.hero {
+  min-height: 500px;
+  padding: 90px 8%;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(20,20,20,.85), rgba(20,20,20,.3)),
+    radial-gradient(circle at 80% 35%, #c68a61, #34251e 55%, #171717);
+  color: white;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero .eyebrow { color: #e9b38f; }
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero h1 span { color: #e5a274; }
+
+.hero-text {
+  max-width: 560px;
+  color: #eee;
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+.primary-btn {
+  display: inline-block;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.primary-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.section {
+  padding: 75px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: 38px;
+}
+
+.reservation-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 25px;
+}
+
+.form-card, .table-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(50,40,30,.06);
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 700;
+  margin: 13px 0 7px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #d7d0c4;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+}
+
+input:focus, select:focus {
+  outline: 2px solid rgba(182,106,60,.25);
+  border-color: var(--accent);
+}
+
+.table-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.table-top h3 { font-size: 22px; }
+
+.table-top p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: #666;
+}
+
+.legend span {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.legend i {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.legend .available { background: #e3f0e4; border: 1px solid var(--green); }
+.legend .selected { background: #f5dfcf; border: 1px solid var(--accent); }
+.legend .reserved { background: #ead7d7; border: 1px solid var(--red); }
+
+.restaurant-floor {
+  min-height: 370px;
+  border: 2px dashed #d8cdbd;
+  background: #faf7f0;
+  border-radius: 14px;
+  padding: 30px;
+  position: relative;
+}
+
+.entrance, .counter {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #998d7d;
+}
+
+.counter {
+  margin: 28px auto 0;
+  padding: 10px;
+  max-width: 210px;
+  border: 1px solid #d9cebf;
+  border-radius: 8px;
+}
+
+.tables {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px 25px;
+  margin: 35px auto;
+  max-width: 600px;
+}
+
+.table {
+  min-height: 70px;
+  border: 2px solid var(--green);
+  background: #eaf4eb;
+  color: #315638;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.table small {
+  display: block;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.table:hover:not(.reserved) {
+  transform: scale(1.06);
+}
+
+.table.selected {
+  background: #f5dfcf;
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.table.reserved {
+  background: #ead7d7;
+  border-color: var(--red);
+  color: #814040;
+  cursor: not-allowed;
+  opacity: .8;
+}
+
+.selected-info {
+  padding: 13px;
+  margin: 18px 0;
+  background: #f8f3eb;
+  border-radius: 8px;
+}
+
+.full { width: 100%; text-align: center; }
+
+.message {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 700;
+  min-height: 24px;
+}
+
+.message.success { color: var(--green); }
+.message.error { color: var(--red); }
+
+.reservations-section {
+  background: #fff;
+}
+
+.reservation-list {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  gap: 14px;
+}
+
+.reservation-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+}
+
+.reservation-item h3 { margin-bottom: 5px; }
+
+.reservation-item p {
+  color: #666;
+  font-size: 14px;
+}
+
+.cancel-btn {
+  border: 1px solid var(--red);
+  color: var(--red);
+  background: white;
+  padding: 9px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 30px;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  background: var(--dark);
+  color: #bbb;
+}
+
+@media (max-width: 850px) {
+  nav { gap: 12px; }
+  nav a { font-size: 13px; }
+  .reservation-grid { grid-template-columns: 1fr; }
+  .tables { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 550px) {
+  .navbar { padding: 0 5%; }
+  .logo { font-size: 20px; }
+  nav { display: none; }
+  .hero { padding: 65px 7%; }
+  .section { padding: 55px 5%; }
+  .section-heading h2 { font-size: 30px; }
+  .form-card, .table-card { padding: 18px; }
+  .restaurant-floor { padding: 20px 10px; }
+  .tables { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .reservation-item { flex-direction: column; align-items: stretch; }
+}
